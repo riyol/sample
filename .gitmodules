@@ -1,0 +1,3 @@
+[submodule "quicklib"]
+	path = quicklib
+	url = https://github.com/riyol/quicklib.git
