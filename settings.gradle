@@ -1,1 +1,1 @@
-include ':app', ':quicklib', ':aidl_sample', ':aidl_sample_impl'
+include ':app', ':quicklib', ':aidl_sample', ':aidl_sample_impl', ':permission'
