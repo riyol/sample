@@ -34,7 +34,6 @@ public class MainActivity extends VMBindingMaterialActivity<ServiceViewModel, Ma
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        canBind = bindService(new Intent(this, RemoteUserService.class), connection, Context.BIND_AUTO_CREATE);
     }
 
 
@@ -50,9 +49,16 @@ public class MainActivity extends VMBindingMaterialActivity<ServiceViewModel, Ma
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        canBind = bindService(new Intent(this, RemoteUserService.class), connection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
     protected void onStop() {
         if (canBind) {
             unbindService(connection);
+            canBind = false;
         }
         super.onStop();
     }
